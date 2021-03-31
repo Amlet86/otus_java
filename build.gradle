@@ -1,19 +1,32 @@
 plugins {
-    id 'java'
+    id 'idea'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    //для сборки толстого jar
+    id 'com.github.johnrengelman.shadow' version '6.1.0' apply(false)
 }
 
-group 'ru.amlet'
-version '1.0-SNAPSHOT'
-
-repositories {
-    mavenCentral()
+idea {
+    project{
+        languageLevel = 11
+    }
+    module {
+        downloadJavadoc = true
+        downloadSources = true
+    }
 }
 
-dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:1.7.0'
-}
+allprojects {
+    group 'ru.amlet'
 
-test {
-    useJUnitPlatform()
+    repositories {
+        mavenCentral()
+    }
+
+    apply plugin: 'io.spring.dependency-management'
+
+    dependencyManagement {
+        dependencies {
+            dependency('com.google.guava:guava:' + guavaVersion)
+        }
+    }
 }
