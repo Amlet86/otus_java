@@ -1,0 +1,199 @@
+[2021-04-30T09:30:04.063+0300][0.016s][debug][gc] Expanding heap from 0M to 128M
+[2021-04-30T09:30:04.116+0300][0.069s][info ][gc] Using The Z Garbage Collector
+[2021-04-30T09:30:04.693+0300][0,647s][info ][gc] GC(0) Garbage Collection (Warmup) 22M(17%)->20M(16%)
+[2021-04-30T09:30:04.799+0300][0,753s][info ][gc] GC(1) Garbage Collection (Warmup) 42M(33%)->22M(17%)
+[2021-04-30T09:30:04.897+0300][0,851s][info ][gc] GC(2) Garbage Collection (Warmup) 50M(39%)->20M(16%)
+[2021-04-30T09:30:04.991+0300][0,945s][info ][gc] GC(3) Garbage Collection (Allocation Rate) 46M(36%)->26M(20%)
+[2021-04-30T09:30:05.090+0300][1,043s][info ][gc] GC(4) Garbage Collection (Allocation Rate) 64M(50%)->24M(19%)
+[2021-04-30T09:30:05.190+0300][1,143s][info ][gc] Allocation Stall (Service Thread) 0,092ms
+[2021-04-30T09:30:05.194+0300][1,148s][info ][gc] GC(5) Garbage Collection (Allocation Rate) 74M(58%)->30M(23%)
+[2021-04-30T09:30:05.284+0300][1,237s][info ][gc] GC(6) Garbage Collection (Allocation Rate) 66M(52%)->24M(19%)
+[2021-04-30T09:30:05.388+0300][1,342s][info ][gc] Allocation Stall (Service Thread) 0,053ms
+[2021-04-30T09:30:05.393+0300][1,346s][info ][gc] GC(7) Garbage Collection (Allocation Rate) 76M(59%)->30M(23%)
+[2021-04-30T09:30:05.484+0300][1,438s][info ][gc] Allocation Stall (main) 10,585ms
+[2021-04-30T09:30:05.484+0300][1,438s][info ][gc] Allocation Stall (Service Thread) 0,112ms
+[2021-04-30T09:30:05.486+0300][1,439s][info ][gc] GC(8) Garbage Collection (Allocation Rate) 84M(66%)->24M(19%)
+[2021-04-30T09:30:05.580+0300][1,534s][info ][gc] Allocation Stall (main) 9,015ms
+[2021-04-30T09:30:05.583+0300][1,537s][info ][gc] Allocation Stall (Service Thread) 0,099ms
+[2021-04-30T09:30:05.587+0300][1,541s][info ][gc] GC(9) Garbage Collection (Allocation Rate) 86M(67%)->28M(22%)
+[2021-04-30T09:30:05.664+0300][1,617s][debug][gc] GC(10) Boosting workers
+[2021-04-30T09:30:05.670+0300][1,623s][info ][gc] Allocation Stall (Service Thread) 0,119ms
+[2021-04-30T09:30:05.670+0300][1,623s][info ][gc] Allocation Stall (main) 5,865ms
+[2021-04-30T09:30:05.670+0300][1,624s][info ][gc] GC(10) Garbage Collection (Allocation Stall) 86M(67%)->24M(19%)
+[2021-04-30T09:30:05.687+0300][1,640s][info ][gc] GC(11) Garbage Collection (Allocation Rate) 24M(19%)->34M(27%)
+[2021-04-30T09:30:05.755+0300][1,708s][debug][gc] GC(12) Boosting workers
+[2021-04-30T09:30:05.760+0300][1,714s][info ][gc] Allocation Stall (main) 5,863ms
+[2021-04-30T09:30:05.760+0300][1,714s][info ][gc] Allocation Stall (Service Thread) 0,096ms
+[2021-04-30T09:30:05.762+0300][1,715s][info ][gc] GC(12) Garbage Collection (Allocation Stall) 86M(67%)->30M(23%)
+[2021-04-30T09:30:05.788+0300][1,741s][info ][gc] GC(13) Garbage Collection (Allocation Rate) 36M(28%)->34M(27%)
+[2021-04-30T09:30:05.859+0300][1,813s][debug][gc] GC(14) Boosting workers
+[2021-04-30T09:30:05.865+0300][1,819s][info ][gc] Allocation Stall (Service Thread) 0,130ms
+[2021-04-30T09:30:05.865+0300][1,819s][info ][gc] Allocation Stall (main) 6,239ms
+[2021-04-30T09:30:05.866+0300][1,820s][info ][gc] GC(14) Garbage Collection (Allocation Stall) 86M(67%)->26M(20%)
+[2021-04-30T09:30:05.887+0300][1,840s][info ][gc] GC(15) Garbage Collection (Allocation Rate) 28M(22%)->34M(27%)
+[2021-04-30T09:30:05.965+0300][1,918s][debug][gc] GC(16) Boosting workers
+[2021-04-30T09:30:05.971+0300][1,925s][info ][gc] Allocation Stall (main) 6,656ms
+[2021-04-30T09:30:05.974+0300][1,928s][info ][gc] Allocation Stall (Service Thread) 0,043ms
+[2021-04-30T09:30:05.977+0300][1,930s][info ][gc] GC(16) Garbage Collection (Allocation Stall) 86M(67%)->24M(19%)
+[2021-04-30T09:30:06.084+0300][2,037s][info ][gc] Allocation Stall (main) 8,423ms
+[2021-04-30T09:30:06.084+0300][2,037s][info ][gc] Allocation Stall (Service Thread) 0,153ms
+[2021-04-30T09:30:06.085+0300][2,039s][info ][gc] GC(17) Garbage Collection (Allocation Rate) 84M(66%)->34M(27%)
+[2021-04-30T09:30:06.154+0300][2,108s][debug][gc] GC(18) Boosting workers
+[2021-04-30T09:30:06.160+0300][2,114s][info ][gc] Allocation Stall (main) 6,282ms
+[2021-04-30T09:30:06.160+0300][2,114s][info ][gc] Allocation Stall (Service Thread) 0,085ms
+[2021-04-30T09:30:06.161+0300][2,115s][info ][gc] GC(18) Garbage Collection (Allocation Stall) 86M(67%)->26M(20%)
+[2021-04-30T09:30:06.185+0300][2,139s][info ][gc] GC(19) Garbage Collection (Allocation Rate) 34M(27%)->38M(30%)
+[2021-04-30T09:30:06.288+0300][2,241s][info ][gc] Allocation Stall (Service Thread) 0,039ms
+[2021-04-30T09:30:06.289+0300][2,243s][info ][gc] GC(20) Garbage Collection (Allocation Rate) 78M(61%)->34M(27%)
+[2021-04-30T09:30:06.384+0300][2,337s][info ][gc] Allocation Stall (main) 1,312ms
+[2021-04-30T09:30:06.386+0300][2,340s][info ][gc] Allocation Stall (Service Thread) 0,110ms
+[2021-04-30T09:30:06.390+0300][2,343s][info ][gc] GC(21) Garbage Collection (Allocation Rate) 80M(62%)->38M(30%)
+[2021-04-30T09:30:06.492+0300][2,446s][info ][gc] Allocation Stall (main) 20,165ms
+[2021-04-30T09:30:06.493+0300][2,446s][info ][gc] Allocation Stall (Service Thread) 0,072ms
+[2021-04-30T09:30:06.492+0300][2,446s][info ][gc] Allocation Stall (RMI TCP Accept-0) 7,624ms
+[2021-04-30T09:30:06.494+0300][2,448s][info ][gc] GC(22) Garbage Collection (Allocation Rate) 84M(66%)->34M(27%)
+[2021-04-30T09:30:06.615+0300][2,569s][info ][gc] Allocation Stall (Service Thread) 0,661ms
+[2021-04-30T09:30:06.621+0300][2,575s][info ][gc] Allocation Stall (main) 22,071ms
+[2021-04-30T09:30:06.622+0300][2,576s][info ][gc] GC(23) Garbage Collection (Allocation Rate) 72M(56%)->42M(33%)
+[2021-04-30T09:30:06.722+0300][2,676s][info ][gc] GC(24) Garbage Collection (Allocation Rate) 58M(45%)->36M(28%)
+[2021-04-30T09:30:06.805+0300][2,758s][info ][gc] GC(25) Garbage Collection (Allocation Rate) 62M(48%)->40M(31%)
+[2021-04-30T09:30:06.847+0300][2,800s][debug][gc] GC(26) Boosting workers
+[2021-04-30T09:30:06.863+0300][2,817s][info ][gc] Allocation Stall (Service Thread) 0,137ms
+[2021-04-30T09:30:06.864+0300][2,818s][info ][gc] Allocation Stall (main) 18,030ms
+[2021-04-30T09:30:06.864+0300][2,818s][info ][gc] GC(26) Garbage Collection (Allocation Stall) 86M(67%)->62M(48%)
+[2021-04-30T09:30:06.901+0300][2,855s][info ][gc] GC(27) Garbage Collection (Allocation Rate) 62M(48%)->74M(58%)
+[2021-04-30T09:30:06.924+0300][2,877s][debug][gc] GC(28) Boosting workers
+[2021-04-30T09:30:06.930+0300][2,883s][info ][gc] Allocation Stall (main) 6,213ms
+[2021-04-30T09:30:06.934+0300][2,887s][info ][gc] Allocation Stall (Service Thread) 0,116ms
+[2021-04-30T09:30:06.937+0300][2,890s][info ][gc] GC(28) Garbage Collection (Allocation Stall) 86M(67%)->68M(53%)
+[2021-04-30T09:30:06.969+0300][2,922s][debug][gc] GC(29) Boosting workers
+[2021-04-30T09:30:06.979+0300][2,932s][info ][gc] Allocation Stall (main) 10,311ms
+[2021-04-30T09:30:06.979+0300][2,932s][info ][gc] Allocation Stall (Service Thread) 0,103ms
+[2021-04-30T09:30:06.980+0300][2,933s][info ][gc] GC(29) Garbage Collection (Allocation Stall) 86M(67%)->66M(52%)
+[2021-04-30T09:30:07.011+0300][2,965s][debug][gc] GC(30) Boosting workers
+[2021-04-30T09:30:07.035+0300][2,989s][info ][gc] Allocation Stall (main) 23,648ms
+[2021-04-30T09:30:07.037+0300][2,991s][info ][gc] GC(30) Garbage Collection (Allocation Stall) 86M(67%)->60M(47%)
+[2021-04-30T09:30:07.109+0300][3,063s][info ][gc] Allocation Stall (Service Thread) 1,474ms
+[2021-04-30T09:30:07.109+0300][3,063s][info ][gc] GC(31) Garbage Collection (Allocation Rate) 78M(61%)->66M(52%)
+[2021-04-30T09:30:07.160+0300][3,114s][debug][gc] GC(32) Boosting workers
+[2021-04-30T09:30:07.171+0300][3,125s][info ][gc] Allocation Stall (main) 11,029ms
+[2021-04-30T09:30:07.175+0300][3,129s][info ][gc] Allocation Stall (Service Thread) 0,425ms
+[2021-04-30T09:30:07.176+0300][3,129s][info ][gc] GC(32) Garbage Collection (Allocation Stall) 86M(67%)->64M(50%)
+[2021-04-30T09:30:07.210+0300][3,164s][debug][gc] GC(33) Boosting workers
+[2021-04-30T09:30:07.223+0300][3,177s][info ][gc] Allocation Stall (Service Thread) 0,203ms
+[2021-04-30T09:30:07.224+0300][3,178s][info ][gc] GC(33) Garbage Collection (Allocation Stall) 86M(67%)->68M(53%)
+[2021-04-30T09:30:07.227+0300][3,181s][info ][gc] Allocation Stall (main) 17,023ms
+[2021-04-30T09:30:07.267+0300][3,220s][debug][gc] GC(34) Boosting workers
+[2021-04-30T09:30:07.276+0300][3,230s][info ][gc] Allocation Stall (Service Thread) 0,334ms
+[2021-04-30T09:30:07.276+0300][3,230s][info ][gc] Allocation Stall (main) 9,238ms
+[2021-04-30T09:30:07.276+0300][3,230s][info ][gc] GC(34) Garbage Collection (Allocation Stall) 86M(67%)->68M(53%)
+[2021-04-30T09:30:07.315+0300][3,269s][debug][gc] GC(35) Boosting workers
+[2021-04-30T09:30:07.326+0300][3,280s][info ][gc] Allocation Stall (main) 11,044ms
+[2021-04-30T09:30:07.326+0300][3,280s][info ][gc] Allocation Stall (Service Thread) 0,508ms
+[2021-04-30T09:30:07.326+0300][3,280s][info ][gc] GC(35) Garbage Collection (Allocation Stall) 86M(67%)->68M(53%)
+[2021-04-30T09:30:07.356+0300][3,309s][debug][gc] GC(36) Boosting workers
+[2021-04-30T09:30:07.365+0300][3,319s][info ][gc] Allocation Stall (main) 9,919ms
+[2021-04-30T09:30:07.366+0300][3,319s][info ][gc] Allocation Stall (Service Thread) 0,271ms
+[2021-04-30T09:30:07.366+0300][3,320s][info ][gc] GC(36) Garbage Collection (Allocation Stall) 86M(67%)->70M(55%)
+[2021-04-30T09:30:07.390+0300][3,343s][info ][gc] Allocation Stall (Service Thread) 0,399ms
+[2021-04-30T09:30:07.390+0300][3,344s][info ][gc] Allocation Stall (main) 0,454ms
+[2021-04-30T09:30:07.390+0300][3,344s][info ][gc] GC(37) Garbage Collection (Allocation Rate) 72M(56%)->84M(66%)
+[2021-04-30T09:30:07.396+0300][3,350s][debug][gc] GC(38) Boosting workers
+[2021-04-30T09:30:07.402+0300][3,355s][info ][gc] Allocation Stall (main) 5,917ms
+[2021-04-30T09:30:07.405+0300][3,359s][info ][gc] Allocation Stall (Service Thread) 0,103ms
+[2021-04-30T09:30:07.405+0300][3,359s][info ][gc] Allocation Stall (main) 0,527ms
+[2021-04-30T09:30:07.407+0300][3,360s][info ][gc] GC(38) Garbage Collection (Allocation Stall) 86M(67%)->72M(56%)
+[2021-04-30T09:30:07.428+0300][3,382s][debug][gc] GC(39) Boosting workers
+[2021-04-30T09:30:07.435+0300][3,389s][info ][gc] Allocation Stall (main) 6,899ms
+[2021-04-30T09:30:07.439+0300][3,392s][info ][gc] Allocation Stall (main) 2,852ms
+[2021-04-30T09:30:07.439+0300][3,392s][info ][gc] Allocation Stall (Service Thread) 0,275ms
+[2021-04-30T09:30:07.440+0300][3,394s][info ][gc] GC(39) Garbage Collection (Allocation Stall) 86M(67%)->72M(56%)
+[2021-04-30T09:30:07.462+0300][3,416s][debug][gc] GC(40) Boosting workers
+[2021-04-30T09:30:07.471+0300][3,425s][info ][gc] Allocation Stall (main) 9,583ms
+[2021-04-30T09:30:07.471+0300][3,425s][info ][gc] Allocation Stall (Service Thread) 0,147ms
+[2021-04-30T09:30:07.472+0300][3,425s][info ][gc] GC(40) Garbage Collection (Allocation Stall) 86M(67%)->70M(55%)
+[2021-04-30T09:30:07.488+0300][3,441s][info ][gc] GC(41) Garbage Collection (Allocation Rate) 70M(55%)->82M(64%)
+[2021-04-30T09:30:07.497+0300][3,451s][debug][gc] GC(42) Boosting workers
+[2021-04-30T09:30:07.505+0300][3,458s][info ][gc] Allocation Stall (main) 7,370ms
+[2021-04-30T09:30:07.509+0300][3,463s][info ][gc] Allocation Stall (Service Thread) 0,155ms
+[2021-04-30T09:30:07.510+0300][3,464s][info ][gc] GC(42) Garbage Collection (Allocation Stall) 86M(67%)->72M(56%)
+[2021-04-30T09:30:07.534+0300][3,488s][debug][gc] GC(43) Boosting workers
+[2021-04-30T09:30:07.544+0300][3,497s][info ][gc] Allocation Stall (main) 9,272ms
+[2021-04-30T09:30:07.544+0300][3,497s][info ][gc] Allocation Stall (Service Thread) 0,112ms
+[2021-04-30T09:30:07.544+0300][3,498s][info ][gc] GC(43) Garbage Collection (Allocation Stall) 86M(67%)->70M(55%)
+[2021-04-30T09:30:07.571+0300][3,525s][debug][gc] GC(44) Boosting workers
+[2021-04-30T09:30:07.580+0300][3,533s][info ][gc] Allocation Stall (main) 8,365ms
+[2021-04-30T09:30:07.580+0300][3,533s][info ][gc] Allocation Stall (Service Thread) 0,162ms
+[2021-04-30T09:30:07.580+0300][3,534s][info ][gc] GC(44) Garbage Collection (Allocation Rate) 86M(67%)->72M(56%)
+[2021-04-30T09:30:07.603+0300][3,556s][debug][gc] GC(45) Boosting workers
+[2021-04-30T09:30:07.612+0300][3,565s][info ][gc] Allocation Stall (main) 9,226ms
+[2021-04-30T09:30:07.612+0300][3,565s][info ][gc] Allocation Stall (Service Thread) 0,144ms
+[2021-04-30T09:30:07.614+0300][3,568s][info ][gc] GC(45) Garbage Collection (Allocation Stall) 86M(67%)->70M(55%)
+[2021-04-30T09:30:07.641+0300][3,594s][debug][gc] GC(46) Boosting workers
+[2021-04-30T09:30:07.647+0300][3,601s][info ][gc] Allocation Stall (main) 6,233ms
+[2021-04-30T09:30:07.649+0300][3,603s][info ][gc] Allocation Stall (Service Thread) 0,115ms
+[2021-04-30T09:30:07.650+0300][3,604s][info ][gc] GC(46) Garbage Collection (Allocation Stall) 86M(67%)->68M(53%)
+[2021-04-30T09:30:07.697+0300][3,650s][info ][gc] Allocation Stall (main) 24,650ms
+[2021-04-30T09:30:07.697+0300][3,650s][info ][gc] Allocation Stall (RMI TCP Connection(1)-192.168.0.15) 24,656ms
+[2021-04-30T09:30:07.697+0300][3,650s][info ][gc] Allocation Stall (Service Thread) 0,222ms
+[2021-04-30T09:30:07.698+0300][3,651s][info ][gc] GC(47) Garbage Collection (Allocation Rate) 86M(67%)->74M(58%)
+[2021-04-30T09:30:07.722+0300][3,676s][debug][gc] GC(48) Boosting workers
+[2021-04-30T09:30:07.729+0300][3,682s][info ][gc] Allocation Stall (main) 6,506ms
+[2021-04-30T09:30:07.731+0300][3,685s][info ][gc] GC(48) Garbage Collection (Allocation Stall) 86M(67%)->72M(56%)
+[2021-04-30T09:30:07.760+0300][3,714s][debug][gc] GC(49) Boosting workers
+[2021-04-30T09:30:07.770+0300][3,723s][info ][gc] Allocation Stall (main) 9,317ms
+[2021-04-30T09:30:07.770+0300][3,723s][info ][gc] Allocation Stall (Service Thread) 0,096ms
+[2021-04-30T09:30:07.771+0300][3,724s][info ][gc] GC(49) Garbage Collection (Allocation Stall) 86M(67%)->72M(56%)
+[2021-04-30T09:30:07.797+0300][3,751s][info ][gc] Allocation Stall (main) 1,334ms
+[2021-04-30T09:30:07.798+0300][3,751s][info ][gc] Allocation Stall (Service Thread) 0,910ms
+[2021-04-30T09:30:07.798+0300][3,752s][info ][gc] GC(50) Garbage Collection (Allocation Rate) 74M(58%)->84M(66%)
+[2021-04-30T09:30:07.803+0300][3,756s][debug][gc] GC(51) Boosting workers
+[2021-04-30T09:30:07.808+0300][3,762s][info ][gc] Allocation Stall (main) 5,692ms
+[2021-04-30T09:30:07.810+0300][3,764s][info ][gc] Allocation Stall (Service Thread) 0,180ms
+[2021-04-30T09:30:07.811+0300][3,764s][info ][gc] GC(51) Garbage Collection (Allocation Stall) 86M(67%)->72M(56%)
+[2021-04-30T09:30:07.833+0300][3,787s][debug][gc] GC(52) Boosting workers
+[2021-04-30T09:30:07.855+0300][3,809s][info ][gc] Allocation Stall (Service Thread) 0,169ms
+[2021-04-30T09:30:07.856+0300][3,809s][info ][gc] Allocation Stall (main) 22,505ms
+[2021-04-30T09:30:07.857+0300][3,811s][info ][gc] GC(52) Garbage Collection (Allocation Stall) 86M(67%)->70M(55%)
+[2021-04-30T09:30:07.890+0300][3,844s][info ][gc] Allocation Stall (main) 6,842ms
+[2021-04-30T09:30:07.890+0300][3,844s][info ][gc] Allocation Stall (Service Thread) 0,208ms
+[2021-04-30T09:30:07.891+0300][3,844s][info ][gc] GC(53) Garbage Collection (Allocation Rate) 78M(61%)->80M(62%)
+[2021-04-30T09:30:07.901+0300][3,855s][debug][gc] GC(54) Boosting workers
+[2021-04-30T09:30:07.907+0300][3,861s][info ][gc] Allocation Stall (main) 6,129ms
+[2021-04-30T09:30:07.911+0300][3,865s][info ][gc] Allocation Stall (Service Thread) 0,097ms
+[2021-04-30T09:30:07.912+0300][3,866s][info ][gc] GC(54) Garbage Collection (Allocation Stall) 86M(67%)->76M(59%)
+[2021-04-30T09:30:07.928+0300][3,882s][debug][gc] GC(55) Boosting workers
+[2021-04-30T09:30:07.937+0300][3,890s][info ][gc] Allocation Stall (main) 8,537ms
+[2021-04-30T09:30:07.937+0300][3,890s][info ][gc] Allocation Stall (Service Thread) 0,194ms
+[2021-04-30T09:30:07.938+0300][3,892s][info ][gc] GC(55) Garbage Collection (Allocation Stall) 86M(67%)->70M(55%)
+[2021-04-30T09:30:07.964+0300][3,917s][debug][gc] GC(56) Boosting workers
+[2021-04-30T09:30:07.973+0300][3,926s][info ][gc] Allocation Stall (main) 9,192ms
+[2021-04-30T09:30:07.973+0300][3,926s][info ][gc] Allocation Stall (Service Thread) 0,117ms
+[2021-04-30T09:30:07.973+0300][3,927s][info ][gc] GC(56) Garbage Collection (Allocation Stall) 86M(67%)->74M(58%)
+[2021-04-30T09:30:07.990+0300][3,944s][debug][gc] GC(57) Boosting workers
+[2021-04-30T09:30:07.998+0300][3,951s][info ][gc] Allocation Stall (Service Thread) 0,131ms
+[2021-04-30T09:30:07.998+0300][3,951s][info ][gc] Allocation Stall (main) 7,547ms
+[2021-04-30T09:30:07.998+0300][3,951s][info ][gc] GC(57) Garbage Collection (Allocation Stall) 86M(67%)->74M(58%)
+[2021-04-30T09:30:08.015+0300][3,968s][debug][gc] GC(58) Boosting workers
+[2021-04-30T09:30:08.022+0300][3,976s][info ][gc] Allocation Stall (Service Thread) 0,125ms
+[2021-04-30T09:30:08.022+0300][3,976s][info ][gc] Allocation Stall (main) 7,692ms
+[2021-04-30T09:30:08.023+0300][3,976s][info ][gc] GC(58) Garbage Collection (Allocation Stall) 86M(67%)->74M(58%)
+[2021-04-30T09:30:08.041+0300][3,995s][debug][gc] GC(59) Boosting workers
+[2021-04-30T09:30:08.049+0300][4,003s][info ][gc] Allocation Stall (Service Thread) 0,061ms
+[2021-04-30T09:30:08.049+0300][4,003s][info ][gc] Allocation Stall (main) 8,300ms
+[2021-04-30T09:30:08.050+0300][4,003s][info ][gc] GC(59) Garbage Collection (Allocation Stall) 86M(67%)->74M(58%)
+[2021-04-30T09:30:08.066+0300][4,019s][debug][gc] GC(60) Boosting workers
+[2021-04-30T09:30:08.076+0300][4,029s][info ][gc] Allocation Stall (main) 9,922ms
+[2021-04-30T09:30:08.076+0300][4,029s][info ][gc] Allocation Stall (Service Thread) 0,213ms
+[2021-04-30T09:30:08.076+0300][4,030s][info ][gc] GC(60) Garbage Collection (Allocation Stall) 86M(67%)->74M(58%)
+[2021-04-30T09:30:08.095+0300][4,049s][debug][gc] GC(61) Boosting workers
+[2021-04-30T09:30:08.104+0300][4,057s][info ][gc] Allocation Stall (Service Thread) 0,102ms
+[2021-04-30T09:30:08.104+0300][4,057s][info ][gc] Allocation Stall (main) 8,715ms
+[2021-04-30T09:30:08.104+0300][4,058s][info ][gc] GC(61) Garbage Collection (Allocation Stall) 86M(67%)->74M(58%)
+[2021-04-30T09:30:08.115+0300][4,068s][debug][gc] GC(62) Boosting workers
+[2021-04-30T09:30:08.124+0300][4,078s][info ][gc] GC(62) Garbage Collection (Allocation Stall) 80M(62%)->70M(55%)
+[2021-04-30T09:30:08.124+0300][4,078s][info ][gc] Allocation Stall (main) 9,461ms
+[2021-04-30T09:30:08.124+0300][4,078s][info ][gc] Out Of Memory (main)
+[2021-04-30T09:30:08.124+0300][4,078s][debug][gc] GC(63) Boosting workers
+[2021-04-30T09:30:08.134+0300][4,088s][info ][gc] Allocation Stall (Service Thread) 10,865ms
+[2021-04-30T09:30:08.135+0300][4,089s][info ][gc] GC(63) Garbage Collection (Allocation Stall) 70M(55%)->76M(59%)
