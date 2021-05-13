@@ -3,6 +3,8 @@ package ru.amlet;
 import java.lang.management.GarbageCollectorMXBean;
 import java.lang.management.ManagementFactory;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicLong;
 import javax.management.MBeanServer;
 import javax.management.NotificationEmitter;
 import javax.management.NotificationListener;
@@ -18,6 +20,8 @@ public class Monitoring {
     }
 
     static void switchOnMonitoring() {
+        AtomicInteger i = new AtomicInteger(1);
+        AtomicLong allDuration = new AtomicLong();
         List<GarbageCollectorMXBean> gcbeans = java.lang.management.ManagementFactory.getGarbageCollectorMXBeans();
         for (GarbageCollectorMXBean gcbean : gcbeans) {
             System.out.println("GC name:" + gcbean.getName());
@@ -32,7 +36,11 @@ public class Monitoring {
                     long startTime = info.getGcInfo().getStartTime();
                     long duration = info.getGcInfo().getDuration();
 
-                    System.out.println("start:" + startTime + " Name:" + gcName + ", action:" + gcAction + ", gcCause:" + gcCause + "(" + duration + " ms)");
+                    allDuration.addAndGet(duration);
+                    long avDuration =  allDuration.longValue() / i.longValue();
+
+                    System.out.println("start:" + startTime + " Name:" + gcName + ", action:" + gcAction + ", gcCause:" + gcCause + "(" + duration + " ms) " + i.incrementAndGet() + "times " + avDuration + "av_ms " + allDuration + " fullTimeSTW" );
+
                 }
             };
             emitter.addNotificationListener(listener, null, null);

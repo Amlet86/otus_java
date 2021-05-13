@@ -28,7 +28,7 @@ public class Benchmark implements BenchmarkMBean {
     public void run() throws InterruptedException {
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
-                list.add(new BigInteger(2330, new SecureRandom()).toString(32));
+                list.add(new BigInteger(2340, new SecureRandom()).toString(32));
             }
             for (int j = size / 2; j < list.size(); j++) {
                 list.remove(j);
