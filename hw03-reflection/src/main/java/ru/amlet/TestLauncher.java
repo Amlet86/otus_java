@@ -28,31 +28,33 @@ public class TestLauncher {
         List<Method> testMethods = findTestMethods(clazz);
         List<Method> afterMethods = findAfterMethods(clazz);
 
-        Object testClass = createInstance(clazz);
-
         testMethods.forEach(method -> {
-            beforeMethods.forEach(afterMethod -> {
+
+            Object instance = createInstance(clazz);
+
+            beforeMethods.forEach(beforeMethod -> {
                 try {
-                    afterMethod.invoke(testClass);
+                    beforeMethod.invoke(instance);
                 } catch (IllegalAccessException | InvocationTargetException e) {
-                    failed++;
+                    e.printStackTrace();
                 }
             });
 
             try {
-                method.invoke(testClass);
+                method.invoke(instance);
                 passed++;
             } catch (IllegalAccessException | InvocationTargetException e) {
                 failed++;
             }
 
-            afterMethods.forEach(beforeMethod -> {
+            afterMethods.forEach(afterMethod -> {
                 try {
-                    beforeMethod.invoke(testClass);
+                    afterMethod.invoke(instance);
                 } catch (IllegalAccessException | InvocationTargetException e) {
-                    failed++;
+                    e.printStackTrace();
                 }
             });
+
         });
     }
 
