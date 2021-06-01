@@ -17,10 +17,12 @@ public class FileSerializer implements Serializer {
 
     //формирует результирующий json и сохраняет его в файл
     @Override
-    public void serialize(Map<String, Double> data) throws IOException {
+    public void serialize(Map<String, Double> data) {
         try (Writer writer = new FileWriter(fileName)) {
             Gson gson = new Gson();
             gson.toJson(data, writer);
+        } catch (IOException e) {
+            throw new FileProcessException(e);
         }
     }
 }
