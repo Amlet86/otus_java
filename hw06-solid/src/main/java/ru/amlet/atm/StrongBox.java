@@ -10,11 +10,13 @@ public class StrongBox {
         this.cassettes = cassettes;
     }
 
-    public void setCassettes(TreeSet<Cash<?>> cassettes) {
+    void setCassettes(TreeSet<Cash<?>> cassettes) {
         this.cassettes = cassettes;
     }
 
     public TreeSet<Cash<?>> getCassettes() {
+        TreeSet<Cash<?>> cassettes = new TreeSet<>();
+        cassettes.addAll(this.cassettes);
         return cassettes;
     }
 
