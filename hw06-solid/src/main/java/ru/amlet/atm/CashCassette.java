@@ -1,21 +1,21 @@
 package ru.amlet.atm;
 
-import ru.amlet.money.Rubles;
+import ru.amlet.money.Money;
 
-public class RubleCashCassette implements Cash<Rubles> {
+public class CashCassette<T extends Money> implements Cash<T> {
 
-    private Rubles rubles;
+    private T money;
     private int currentQuantityOfRubles;
     private final int capacity;
 
-    public RubleCashCassette(Rubles rubles, int quantityOfRubles) {
-        this.rubles = rubles;
+    public CashCassette(T money, int quantityOfRubles) {
+        this.money = money;
         this.currentQuantityOfRubles = quantityOfRubles;
         this.capacity = 100;
     }
 
-    public RubleCashCassette(Rubles rubles, int quantityOfRubles, int capacity) {
-        this.rubles = rubles;
+    public CashCassette(T money, int quantityOfRubles, int capacity) {
+        this.money = money;
         this.currentQuantityOfRubles = quantityOfRubles;
         this.capacity = capacity;
     }
@@ -26,8 +26,8 @@ public class RubleCashCassette implements Cash<Rubles> {
     }
 
     @Override
-    public void setMoney(Rubles rubles) {
-        this.rubles = rubles;
+    public void setMoney(T money) {
+        this.money = money;
     }
 
     @Override
@@ -35,8 +35,9 @@ public class RubleCashCassette implements Cash<Rubles> {
         return currentQuantityOfRubles;
     }
 
-    public Rubles getMoney() {
-        return rubles;
+    @Override
+    public T getMoney() {
+        return money;
     }
 
     public int getCapacity() {
@@ -44,8 +45,8 @@ public class RubleCashCassette implements Cash<Rubles> {
     }
 
     @Override
-    public int compareTo(Cash<Rubles> cash) {
-        return rubles.getDenomination().compareTo(cash.getMoney().getDenomination());
+    public int compareTo(Cash<T> cash) {
+        return money.getDenomination().compareTo(cash.getMoney().getDenomination());
     }
 
 }

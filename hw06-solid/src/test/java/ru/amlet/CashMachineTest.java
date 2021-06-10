@@ -9,7 +9,7 @@ import ru.amlet.atm.Cash;
 import ru.amlet.atm.CashMachine;
 import ru.amlet.atm.NoMatchingBills;
 import ru.amlet.atm.NotEnoughMoney;
-import ru.amlet.atm.RubleCashCassette;
+import ru.amlet.atm.CashCassette;
 import ru.amlet.money.Money;
 import ru.amlet.money.Rubles;
 
@@ -28,11 +28,11 @@ public class CashMachineTest {
         assertThat(startBalance).isEqualTo(0);
         //наполняем его купюрами на 180 рублей
         var cassettes = new TreeSet<Cash<?>>();
-        cassettes.add(new RubleCashCassette(Rubles.HUNDRED, 1));
-        cassettes.add(new RubleCashCassette(Rubles.ONE, 0));
-        cassettes.add(new RubleCashCassette(Rubles.THOUSAND, 0));
-        cassettes.add(new RubleCashCassette(Rubles.FIFTY, 1));
-        cassettes.add(new RubleCashCassette(Rubles.TEN, 3));
+        cassettes.add(new CashCassette<>(Rubles.HUNDRED, 1));
+        cassettes.add(new CashCassette<>(Rubles.ONE, 0));
+        cassettes.add(new CashCassette<>(Rubles.THOUSAND, 0));
+        cassettes.add(new CashCassette<>(Rubles.FIFTY, 1));
+        cassettes.add(new CashCassette<>(Rubles.TEN, 3));
 
         cashMachine.setCassettes(cassettes);
         //получаем его состояние
