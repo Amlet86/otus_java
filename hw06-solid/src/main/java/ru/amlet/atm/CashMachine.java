@@ -8,15 +8,15 @@ import ru.amlet.money.Money;
 
 public class CashMachine {
 
-    private final ATMComputer atmComputer;
+    private final ATMComputerImpl atmComputer;
     private final StrongBox strongBox;
 
     public CashMachine() {
-        this.atmComputer = new ATMComputer();
+        this.atmComputer = new ATMComputerImpl();
         this.strongBox = new StrongBox(new TreeSet<>());
     }
 
-    public CashMachine(ATMComputer atmComputer, StrongBox strongBox) {
+    public CashMachine(ATMComputerImpl atmComputer, StrongBox strongBox) {
         this.atmComputer = atmComputer;
         this.strongBox = strongBox;
     }

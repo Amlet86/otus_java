@@ -7,7 +7,7 @@ import java.util.Set;
 
 import ru.amlet.money.Money;
 
-public class ATMComputer {
+public class ATMComputerImpl {
 
     private int balance;
 
@@ -28,15 +28,15 @@ public class ATMComputer {
     public Map<Money, Integer> getIssueBills(int quantityOfMoney, StrongBox strongBox) {
         Set<Cash<?>> reversedStrongBox = Collections.unmodifiableSortedSet(strongBox.getCassettes().descendingSet());
         Map<Money, Integer> result = new HashMap<>();
-        int tmpQuantityOfMoney = quantityOfMoney;
+        int restOfMoney = quantityOfMoney;
         for (Cash<?> cash : reversedStrongBox) {
-            int resultOfComparing = compareRequestAndCurrentAmountOfMoney(tmpQuantityOfMoney, cash);
-            if (tmpQuantityOfMoney != resultOfComparing) {
+            int resultOfComparing = compareRequestAndCurrentAmountOfMoney(restOfMoney, cash);
+            if (restOfMoney != resultOfComparing) {
                 result.compute(cash.getMoney(), (k, v) -> (v == null ? 0 : v) + 1);
             }
-            tmpQuantityOfMoney = resultOfComparing;
+            restOfMoney = resultOfComparing;
         }
-        could(quantityOfMoney, result);
+        couldIssueBills(quantityOfMoney, result);
         return result;
     }
 
@@ -48,15 +48,15 @@ public class ATMComputer {
         return remainder >= 0 ? remainder : quantityOfMoney;
     }
 
-    private void could(int quantityOfMoney, Map<Money, Integer> result) {
-        int tmp = 0;
+    private void couldIssueBills(int quantityOfMoneyFromRequest, Map<Money, Integer> result) {
+        int quantityOfMoneyInATM = 0;
         for (Map.Entry<Money, Integer> entry : result.entrySet()) {
             Money money = entry.getKey();
             Integer currentValueOfMoney = entry.getValue();
-            tmp += money.getDenomination() * currentValueOfMoney;
+            quantityOfMoneyInATM += money.getDenomination() * currentValueOfMoney;
         }
-        if (tmp != quantityOfMoney) {
-            throw new NoMatchingBills(quantityOfMoney);
+        if (quantityOfMoneyInATM != quantityOfMoneyFromRequest) {
+            throw new NoMatchingBills(quantityOfMoneyFromRequest);
         }
     }
 
