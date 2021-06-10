@@ -2,7 +2,7 @@ package ru.amlet.atm;
 
 import ru.amlet.money.Dollars;
 
-public class DollarCashCassette implements Cash<Dollars>, Cassette {
+public class DollarCashCassette implements Cash<Dollars> {
 
     private Dollars dollars;
     private int currentQuantityOfDollars;
@@ -11,7 +11,13 @@ public class DollarCashCassette implements Cash<Dollars>, Cassette {
     public DollarCashCassette(Dollars dollars, int quantityOfDollars) {
         this.dollars = dollars;
         this.currentQuantityOfDollars = quantityOfDollars;
-        this.capacity = CAPACITY;
+        this.capacity = 100;
+    }
+
+    public DollarCashCassette(Dollars dollars, int quantityOfDollars, int capacity) {
+        this.dollars = dollars;
+        this.currentQuantityOfDollars = quantityOfDollars;
+        this.capacity = capacity;
     }
 
     @Override
@@ -34,7 +40,6 @@ public class DollarCashCassette implements Cash<Dollars>, Cassette {
         return dollars;
     }
 
-    @Override
     public int getCapacity() {
         return capacity;
     }

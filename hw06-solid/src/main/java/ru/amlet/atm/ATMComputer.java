@@ -4,7 +4,6 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-import java.util.concurrent.atomic.AtomicInteger;
 
 import ru.amlet.money.Money;
 
@@ -29,21 +28,19 @@ public class ATMComputer {
     public Map<Money, Integer> getIssueBills(int quantityOfMoney, StrongBox strongBox) {
         Set<Cash<?>> reversedStrongBox = Collections.unmodifiableSortedSet(strongBox.getCassettes().descendingSet());
         Map<Money, Integer> result = new HashMap<>();
-        AtomicInteger tmp = new AtomicInteger(quantityOfMoney);
-        reversedStrongBox.forEach(
-            cash -> {
-                int tmp2 = countTmp(tmp.get(), cash);
-                if (tmp.get() != tmp2) {
-                    result.compute(cash.getMoney(), (k, v) -> (v == null ? 0 : v) + 1);
-                }
-                tmp.set(tmp2);
+        int tmpQuantityOfMoney = quantityOfMoney;
+        for (Cash<?> cash : reversedStrongBox) {
+            int resultOfComparing = compareRequestAndCurrentAmountOfMoney(tmpQuantityOfMoney, cash);
+            if (tmpQuantityOfMoney != resultOfComparing) {
+                result.compute(cash.getMoney(), (k, v) -> (v == null ? 0 : v) + 1);
             }
-        );
+            tmpQuantityOfMoney = resultOfComparing;
+        }
         could(quantityOfMoney, result);
         return result;
     }
 
-    private int countTmp(int quantityOfMoney, Cash<?> cash) {
+    private int compareRequestAndCurrentAmountOfMoney(int quantityOfMoney, Cash<?> cash) {
         if (cash.getQuantity() == 0) {
             return quantityOfMoney;
         }
@@ -52,9 +49,13 @@ public class ATMComputer {
     }
 
     private void could(int quantityOfMoney, Map<Money, Integer> result) {
-        AtomicInteger tmp = new AtomicInteger(0);
-        result.forEach((money, integer) -> tmp.addAndGet(money.getDenomination() * integer));
-        if (tmp.get() != quantityOfMoney) {
+        int tmp = 0;
+        for (Map.Entry<Money, Integer> entry : result.entrySet()) {
+            Money money = entry.getKey();
+            Integer currentValueOfMoney = entry.getValue();
+            tmp += money.getDenomination() * currentValueOfMoney;
+        }
+        if (tmp != quantityOfMoney) {
             throw new NoMatchingBills(quantityOfMoney);
         }
     }

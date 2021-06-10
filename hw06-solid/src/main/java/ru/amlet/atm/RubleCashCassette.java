@@ -2,7 +2,7 @@ package ru.amlet.atm;
 
 import ru.amlet.money.Rubles;
 
-public class RubleCashCassette implements Cash<Rubles>, Cassette {
+public class RubleCashCassette implements Cash<Rubles> {
 
     private Rubles rubles;
     private int currentQuantityOfRubles;
@@ -11,7 +11,13 @@ public class RubleCashCassette implements Cash<Rubles>, Cassette {
     public RubleCashCassette(Rubles rubles, int quantityOfRubles) {
         this.rubles = rubles;
         this.currentQuantityOfRubles = quantityOfRubles;
-        this.capacity = CAPACITY;
+        this.capacity = 100;
+    }
+
+    public RubleCashCassette(Rubles rubles, int quantityOfRubles, int capacity) {
+        this.rubles = rubles;
+        this.currentQuantityOfRubles = quantityOfRubles;
+        this.capacity = capacity;
     }
 
     @Override
@@ -33,7 +39,6 @@ public class RubleCashCassette implements Cash<Rubles>, Cassette {
         return rubles;
     }
 
-    @Override
     public int getCapacity() {
         return capacity;
     }
