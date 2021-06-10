@@ -9,6 +9,10 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import ru.amlet.money.Money;
 
+/*
+ * Компьютер.
+ * Выполняет расчёты на основании операций с наличностью.
+ */
 public class ATMComputerImpl implements Computer {
 
     private int balance;

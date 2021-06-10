@@ -2,6 +2,9 @@ package ru.amlet.atm;
 
 import ru.amlet.money.Money;
 
+/*
+ * Универсальное хранилище наличности.
+ */
 public class CashCassette<T extends Money> implements Cash<T> {
 
     private T money;

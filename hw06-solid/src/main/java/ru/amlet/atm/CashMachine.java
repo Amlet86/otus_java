@@ -2,10 +2,13 @@ package ru.amlet.atm;
 
 import java.util.Map;
 import java.util.TreeSet;
-import java.util.concurrent.atomic.AtomicInteger;
 
 import ru.amlet.money.Money;
 
+/*
+ * Банкомат.
+ * Предоставляет внешний интерфейс и раздаёт вызовы входящим в него объектам.
+ */
 public class CashMachine {
 
     private final ATMComputerImpl atmComputer;

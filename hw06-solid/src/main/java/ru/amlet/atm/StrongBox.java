@@ -2,6 +2,10 @@ package ru.amlet.atm;
 
 import java.util.TreeSet;
 
+/*
+ * Сейф.
+ * Хранит кассеты с наличностью.
+ */
 public class StrongBox {
 
     private TreeSet<Cash<?>> cassettes;
