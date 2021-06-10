@@ -27,15 +27,7 @@ public class CashMachine {
 
     public void setCassettes(TreeSet<Cash<?>> cassettes) {
         strongBox.setCassettes(cassettes);
-        atmComputer.setBalance(convertBillsToBalance(cassettes));
-    }
-
-    private int convertBillsToBalance(TreeSet<Cash<?>> cassettes) {
-        AtomicInteger balance = new AtomicInteger();
-        cassettes.forEach(
-            cassette -> balance.addAndGet(cassette.getMoney().getDenomination() * cassette.getQuantity())
-        );
-        return balance.get();
+        atmComputer.setBalance(cassettes);
     }
 
     public Map<Money, Integer> issueBills(int quantityOfMoney) {

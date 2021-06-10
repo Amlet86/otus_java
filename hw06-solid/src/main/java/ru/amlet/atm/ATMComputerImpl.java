@@ -4,25 +4,36 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeSet;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import ru.amlet.money.Money;
 
-public class ATMComputerImpl {
+public class ATMComputerImpl implements Computer {
 
     private int balance;
 
-    void setBalance(int balance) {
-        this.balance = balance;
+    void setBalance(TreeSet<Cash<?>> cassettes) {
+        this.balance = convertBillsToBalance(cassettes);
     }
 
     int getBalance() {
         return balance;
     }
 
+    @Override
     public void checkEnoughBalance(int quantityOfMoney) {
         if (balance < quantityOfMoney) {
             throw new NotEnoughMoney(quantityOfMoney);
         }
+    }
+
+    private int convertBillsToBalance(TreeSet<Cash<?>> cassettes) {
+        AtomicInteger balance = new AtomicInteger();
+        cassettes.forEach(
+            cassette -> balance.addAndGet(cassette.getMoney().getDenomination() * cassette.getQuantity())
+        );
+        return balance.get();
     }
 
     public Map<Money, Integer> getIssueBills(int quantityOfMoney, StrongBox strongBox) {
