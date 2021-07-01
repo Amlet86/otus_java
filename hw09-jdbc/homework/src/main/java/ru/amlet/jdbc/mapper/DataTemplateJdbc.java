@@ -57,9 +57,9 @@ public class DataTemplateJdbc<T> implements DataTemplate<T> {
     }
 
     @Override
-    public long insert(Connection connection, T client) {
+    public long insert(Connection connection, T object) {
         try {
-            List<Object> values = extractValues(client);
+            List<Object> values = extractValues(object);
             return dbExecutor.executeStatement(connection, entitySQLMetaData.getInsertSql(), values);
         } catch (Exception e) {
             throw new DataTemplateException(e);

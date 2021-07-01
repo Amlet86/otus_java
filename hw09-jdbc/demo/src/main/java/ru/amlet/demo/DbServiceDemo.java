@@ -36,6 +36,10 @@ public class DbServiceDemo {
                 .orElseThrow(() -> new RuntimeException("Client not found, id:" + clientSecond.getId()));
         log.info("clientSecondSelected:{}", clientSecondSelected);
 ///
+        clientSecondSelected.setName("Вася");
+        var clientSecondSelected2 = dbServiceClient.saveClient(clientSecondSelected);
+        log.info("clientSecondSelected2:{}", clientSecondSelected2);
+///
         dbServiceClient.saveClient(new Client(clientSecondSelected.getId(), "dbServiceSecondUpdated"));
         var clientUpdated = dbServiceClient.getClient(clientSecondSelected.getId())
                 .orElseThrow(() -> new RuntimeException("Client not found, id:" + clientSecondSelected.getId()));

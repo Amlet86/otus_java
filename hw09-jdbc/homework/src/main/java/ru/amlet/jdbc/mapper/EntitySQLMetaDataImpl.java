@@ -13,7 +13,8 @@ public class EntitySQLMetaDataImpl implements EntitySQLMetaData {
 
     @Override
     public String getSelectAllSql() {
-        return String.format("SELECT * FROM %s",
+        return String.format("SELECT %s FROM %s",
+            getAllFields(),
             entityClassMetaData.getName().toLowerCase());
     }
 
