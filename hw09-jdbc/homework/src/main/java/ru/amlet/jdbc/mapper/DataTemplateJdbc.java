@@ -67,9 +67,9 @@ public class DataTemplateJdbc<T> implements DataTemplate<T> {
     }
 
     @Override
-    public void update(Connection connection, T client) {
+    public void update(Connection connection, T object) {
         try {
-            List<Object> values = extractValues(client);
+            List<Object> values = extractValues(object);
             dbExecutor.executeStatement(connection, entitySQLMetaData.getUpdateSql(), values);
         } catch (Exception e) {
             throw new DataTemplateException(e);

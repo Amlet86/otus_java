@@ -6,6 +6,11 @@ import java.util.stream.Collectors;
 public class EntitySQLMetaDataImpl implements EntitySQLMetaData {
 
     private final EntityClassMetaData entityClassMetaData;
+    private String objectName;
+    private String idField;
+    private String allFields;
+    private String fieldWithoutIdForInsert;
+    private String fieldWithoutIdForUpdate;
 
     public EntitySQLMetaDataImpl(EntityClassMetaData entityClassMetaData) {
         this.entityClassMetaData = entityClassMetaData;
@@ -15,53 +20,76 @@ public class EntitySQLMetaDataImpl implements EntitySQLMetaData {
     public String getSelectAllSql() {
         return String.format("SELECT %s FROM %s",
             getAllFields(),
-            entityClassMetaData.getName().toLowerCase());
+            getObjectName());
     }
 
     @Override
     public String getSelectByIdSql() {
         return String.format("SELECT %s FROM %s WHERE %s = ?",
             getAllFields(),
-            entityClassMetaData.getName().toLowerCase(),
-            entityClassMetaData.getIdField().getName().toLowerCase());
-    }
-
-    private String getAllFields() {
-        return entityClassMetaData.getAllFields().stream()
-            .map(Field::getName)
-            .collect(Collectors.joining(","))
-            .toLowerCase();
+            getObjectName(),
+            getIdField());
     }
 
     @Override
     public String getInsertSql() {
         return String.format("INSERT INTO %s (%s) VALUES (%s)",
-            entityClassMetaData.getName().toLowerCase(),
+            getObjectName(),
             getFieldsWithoutIdForInsert(),
             entityClassMetaData.getFieldsWithoutId().stream()
                 .map(sql -> "?")
                 .collect(Collectors.joining(",")));
     }
 
-    private String getFieldsWithoutIdForInsert() {
-        return entityClassMetaData.getFieldsWithoutId().stream()
-            .map(Field::getName)
-            .collect(Collectors.joining(","))
-            .toLowerCase();
-    }
-
     @Override
     public String getUpdateSql() {
         return String.format("UPDATE %s SET %s WHERE %s = ?",
-            entityClassMetaData.getName().toLowerCase(),
+            getObjectName(),
             getFieldsWithoutIdForUpdate(),
-            entityClassMetaData.getIdField().getName().toLowerCase());
+            getIdField());
+    }
+
+    private String getAllFields() {
+        if (allFields == null) {
+            this.allFields = entityClassMetaData.getAllFields().stream()
+                .map(Field::getName)
+                .collect(Collectors.joining(","))
+                .toLowerCase();
+        }
+        return allFields;
+    }
+
+    private String getObjectName() {
+        if (objectName == null) {
+            this.objectName = entityClassMetaData.getName().toLowerCase();
+        }
+        return objectName;
+    }
+
+    private String getIdField() {
+        if (idField == null) {
+            this.idField = entityClassMetaData.getIdField().getName().toLowerCase();
+        }
+        return idField;
+    }
+
+    private String getFieldsWithoutIdForInsert() {
+        if (fieldWithoutIdForInsert == null) {
+            this.fieldWithoutIdForInsert = entityClassMetaData.getFieldsWithoutId().stream()
+                .map(Field::getName)
+                .collect(Collectors.joining(","))
+                .toLowerCase();
+        }
+        return fieldWithoutIdForInsert;
     }
 
     private String getFieldsWithoutIdForUpdate() {
-        return entityClassMetaData.getFieldsWithoutId().stream()
-            .map(field -> field.getName() + " = ?")
-            .collect(Collectors.joining(","))
-            .toLowerCase();
+        if (fieldWithoutIdForUpdate == null) {
+            this.fieldWithoutIdForUpdate = entityClassMetaData.getFieldsWithoutId().stream()
+                .map(field -> field.getName() + " = ?")
+                .collect(Collectors.joining(","))
+                .toLowerCase();
+        }
+        return fieldWithoutIdForUpdate;
     }
 }
