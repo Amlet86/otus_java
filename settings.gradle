@@ -3,5 +3,7 @@ include 'hw01-gradle'
 include 'hw02-generics'
 include 'hw03-reflection'
 include 'hw04-garbage-collection'
+include 'hw05-class-loader'
 include 'hw06-solid'
+
 include 'hw08-serialization'
