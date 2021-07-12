@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * Сохратяет объект в базу, читает объект из базы
+ * Сохраняет объект в базу, читает объект из базы
  */
 public class DataTemplateJdbc<T> implements DataTemplate<T> {
 
@@ -59,24 +59,14 @@ public class DataTemplateJdbc<T> implements DataTemplate<T> {
     @Override
     public long insert(Connection connection, T object) {
         try {
-            List<Object> values = extractValues(object);
+            List<Object> values = extractValuesForInsert(object);
             return dbExecutor.executeStatement(connection, entitySQLMetaData.getInsertSql(), values);
         } catch (Exception e) {
             throw new DataTemplateException(e);
         }
     }
 
-    @Override
-    public void update(Connection connection, T object) {
-        try {
-            List<Object> values = extractValues(object);
-            dbExecutor.executeStatement(connection, entitySQLMetaData.getUpdateSql(), values);
-        } catch (Exception e) {
-            throw new DataTemplateException(e);
-        }
-    }
-
-    private List<Object> extractValues(T object) throws IllegalAccessException {
+    private List<Object> extractValuesForInsert(T object) throws IllegalAccessException {
         List<Field> fields = entityClassMetaData.getFieldsWithoutId();
         List<Object> values = new ArrayList<>(fields.size());
 
@@ -84,6 +74,28 @@ public class DataTemplateJdbc<T> implements DataTemplate<T> {
             field.setAccessible(true);
             values.add(field.get(object));
         }
+        return values;
+    }
+
+    @Override
+    public void update(Connection connection, T object) {
+        try {
+            List<Object> values = extractValuesForUpdate(object);
+            dbExecutor.executeStatement(connection, entitySQLMetaData.getUpdateSql(), values);
+        } catch (Exception e) {
+            throw new DataTemplateException(e);
+        }
+    }
+
+    private List<Object> extractValuesForUpdate(T object) throws IllegalAccessException {
+        List<Field> fields = entityClassMetaData.getAllFields();
+        List<Object> values = new ArrayList<>(fields.size());
+
+        for (Field field : fields) {
+            field.setAccessible(true);
+            values.add(field.get(object));
+        }
+        Collections.reverse(values);
         return values;
     }
 
