@@ -88,14 +88,16 @@ public class DataTemplateJdbc<T> implements DataTemplate<T> {
     }
 
     private List<Object> extractValuesForUpdate(T object) throws IllegalAccessException {
-        List<Field> fields = entityClassMetaData.getAllFields();
+        List<Field> fields = entityClassMetaData.getFieldsWithoutId();
         List<Object> values = new ArrayList<>(fields.size());
 
         for (Field field : fields) {
             field.setAccessible(true);
             values.add(field.get(object));
         }
-        Collections.reverse(values);
+        Field idField = entityClassMetaData.getIdField();
+        idField.setAccessible(true);
+        values.add(idField.get(object));
         return values;
     }
 
