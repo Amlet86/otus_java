@@ -1,7 +1,9 @@
 package ru.amlet.crm.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -21,7 +23,7 @@ public class PhoneDataSet {
     @Column(name = "number", unique = true)
     private String number;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "client_id")
     private Client client;
 
@@ -32,9 +34,10 @@ public class PhoneDataSet {
         this.number = number;
     }
 
-    public PhoneDataSet(Long id, String number) {
+    public PhoneDataSet(Long id, String number, Client client) {
         this.id = id;
         this.number = number;
+        this.client = client;
     }
 
     public Long getId() {
@@ -53,4 +56,11 @@ public class PhoneDataSet {
         this.number = number;
     }
 
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
 }

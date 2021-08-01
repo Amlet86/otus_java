@@ -41,8 +41,8 @@ public class DbServiceDemo {
         Client client1 = new Client("dbServiceFirst");
         client1.setAddress(new AddressDataSet("someAddress"));
         List<PhoneDataSet> phones = new ArrayList<>();
-        phones.add(new PhoneDataSet("8-800-1234567"));
-        phones.add(new PhoneDataSet("8-800-7654321"));
+        phones.add(new PhoneDataSet(null, "8-800-1234567", client1));
+        phones.add(new PhoneDataSet(null, "8-800-7654321", client1));
         client1.setPhones(phones);
         dbServiceClient.saveClient(client1);
 
@@ -51,7 +51,7 @@ public class DbServiceDemo {
             .orElseThrow(() -> new RuntimeException("Client not found, id:" + clientSecond.getId()));
         log.info("clientSecondSelected:{}", clientSecondSelected);
 ///
-        dbServiceClient.saveClient(new Client(clientSecondSelected.getId(), "dbServiceSecondUpdated", new AddressDataSet("someAddress"), List.of(new PhoneDataSet("123"))));
+        dbServiceClient.saveClient(new Client(clientSecondSelected.getId(), "dbServiceSecondUpdated", clientSecondSelected.getAddress(), clientSecondSelected.getPhones()));
         var clientUpdated = dbServiceClient.getClient(clientSecondSelected.getId())
             .orElseThrow(() -> new RuntimeException("Client not found, id:" + clientSecondSelected.getId()));
         log.info("clientUpdated:{}", clientUpdated);

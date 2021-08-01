@@ -46,6 +46,7 @@ public class Client implements Cloneable {
     }
 
     public Client(Long id, String name, AddressDataSet address, List<PhoneDataSet> phones) {
+        this.id = id;
         this.name = name;
         this.address = address;
         this.phones = phones;
@@ -53,7 +54,7 @@ public class Client implements Cloneable {
 
     @Override
     public Client clone() {
-        return new Client(this.id, this.name);
+        return new Client(this.id, this.name, this.address, this.phones);
     }
 
     public Long getId() {
@@ -88,12 +89,13 @@ public class Client implements Cloneable {
         this.phones = phones;
     }
 
-
     @Override
     public String toString() {
-        return "Client{" +
-            "id=" + id +
-            ", name='" + name + '\'' +
-            '}';
+        return "Client{ " +
+            "id= " + id +
+            ", name= " + name +
+            ", address= " + address +
+            ", phones= " + phones +
+            " }";
     }
 }
