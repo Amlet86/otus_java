@@ -40,17 +40,18 @@ public class DbServiceDemo {
 
         Client client1 = new Client("dbServiceFirst");
         client1.setAddress(new AddressDataSet("someAddress"));
-        List<PhoneDataSet> phones = new ArrayList<>();
-        phones.add(new PhoneDataSet(null, "8-800-1234567", client1));
-        phones.add(new PhoneDataSet(null, "8-800-7654321", client1));
-        client1.setPhones(phones);
+        client1.setPhones(getPhoneDataSet(client1));
         dbServiceClient.saveClient(client1);
 
-        var clientSecond = dbServiceClient.saveClient(new Client("dbServiceSecond"));
-        var clientSecondSelected = dbServiceClient.getClient(clientSecond.getId())
-            .orElseThrow(() -> new RuntimeException("Client not found, id:" + clientSecond.getId()));
+        var client2 = new Client("dbServiceSecond");
+        client2.setAddress(new AddressDataSet("someElseAddress"));
+        client2.setPhones(getPhoneDataSet(client2));
+        dbServiceClient.saveClient(client2);
+
+        var clientSecondSelected = dbServiceClient.getClient(client2.getId())
+            .orElseThrow(() -> new RuntimeException("Client not found, id:" + client2.getId()));
         log.info("clientSecondSelected:{}", clientSecondSelected);
-///
+        ///
         dbServiceClient.saveClient(new Client(clientSecondSelected.getId(), "dbServiceSecondUpdated", clientSecondSelected.getAddress(), clientSecondSelected.getPhones()));
         var clientUpdated = dbServiceClient.getClient(clientSecondSelected.getId())
             .orElseThrow(() -> new RuntimeException("Client not found, id:" + clientSecondSelected.getId()));
@@ -58,5 +59,12 @@ public class DbServiceDemo {
 
         log.info("All clients");
         dbServiceClient.findAll().forEach(client -> log.info("client:{}", client));
+    }
+
+    private static List<PhoneDataSet> getPhoneDataSet(Client client) {
+        List<PhoneDataSet> phones = new ArrayList<>();
+        phones.add(new PhoneDataSet(null, "8-800-1234567", client));
+        phones.add(new PhoneDataSet(null, "8-800-7654321", client));
+        return phones;
     }
 }

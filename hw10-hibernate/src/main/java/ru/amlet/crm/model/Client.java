@@ -15,7 +15,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "client")
-public class Client implements Cloneable {
+public class Client {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -50,11 +50,6 @@ public class Client implements Cloneable {
         this.name = name;
         this.address = address;
         this.phones = phones;
-    }
-
-    @Override
-    public Client clone() {
-        return new Client(this.id, this.name, this.address, this.phones);
     }
 
     public Long getId() {

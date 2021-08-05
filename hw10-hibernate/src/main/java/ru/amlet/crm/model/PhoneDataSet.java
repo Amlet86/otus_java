@@ -20,10 +20,10 @@ public class PhoneDataSet {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "number", unique = true)
+    @Column(name = "number")
     private String number;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "client_id")
     private Client client;
 
