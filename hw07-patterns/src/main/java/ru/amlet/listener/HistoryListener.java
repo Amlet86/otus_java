@@ -8,7 +8,7 @@ import ru.amlet.model.Message;
 
 public class HistoryListener implements Listener, HistoryReader {
 
-    Map<Long, Message> map = new HashMap<>();
+    private final Map<Long, Message> map = new HashMap<>();
 
     @Override
     public void onUpdated(Message msg) {
