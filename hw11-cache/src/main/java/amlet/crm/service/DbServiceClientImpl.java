@@ -52,6 +52,15 @@ public class DbServiceClientImpl implements DBServiceClient {
         });
     }
 
+    @Override
+    public List<Client> findAll() {
+        return transactionManager.doInTransaction(session -> {
+            var clientList = clientDataTemplate.findAll(session);
+            log.info("clientList:{}", clientList);
+            return clientList;
+        });
+    }
+
     private Optional<Client> getWithCache(Session session, long id) {
         String key = String.valueOf(id);
         Client client = cache.get(key);
@@ -64,15 +73,6 @@ public class DbServiceClientImpl implements DBServiceClient {
             cache.put(key, client);
         }
         return clientOptional;
-    }
-
-    @Override
-    public List<Client> findAll() {
-        return transactionManager.doInTransaction(session -> {
-            var clientList = clientDataTemplate.findAll(session);
-            log.info("clientList:{}", clientList);
-            return clientList;
-        });
     }
 
 }
