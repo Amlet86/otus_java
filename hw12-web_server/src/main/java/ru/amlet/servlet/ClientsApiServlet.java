@@ -7,23 +7,23 @@ import jakarta.servlet.ServletOutputStream;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import ru.amlet.dao.UserDao;
+import ru.amlet.services.DbServiceClient;
 import ru.amlet.model.Client;
 
 
-public class UsersApiServlet extends HttpServlet {
+public class ClientsApiServlet extends HttpServlet {
 
-    private final UserDao userDao;
+    private final DbServiceClient dbServiceClient;
     private final Gson gson;
 
-    public UsersApiServlet(UserDao userDao, Gson gson) {
-        this.userDao = userDao;
+    public ClientsApiServlet(DbServiceClient dbServiceClient, Gson gson) {
+        this.dbServiceClient = dbServiceClient;
         this.gson = gson;
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        Client client = userDao.saveClient(extractClientsParametersFromRequest(request));
+        Client client = dbServiceClient.saveClient(extractClientsParametersFromRequest(request));
 
         response.setContentType("application/json;charset=UTF-8");
         ServletOutputStream out = response.getOutputStream();

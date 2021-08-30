@@ -1,11 +1,11 @@
-package ru.amlet.dao;
+package ru.amlet.services;
 
 import java.util.List;
 import java.util.Optional;
 
 import ru.amlet.model.Client;
 
-public interface UserDao {
+public interface DbServiceClient {
 
     Client saveClient(Client client);
 

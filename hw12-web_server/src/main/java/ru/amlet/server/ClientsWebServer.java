@@ -1,6 +1,6 @@
 package ru.amlet.server;
 
-public interface UsersWebServer {
+public interface ClientsWebServer {
 
     void start() throws Exception;
 

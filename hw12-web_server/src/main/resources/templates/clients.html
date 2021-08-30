@@ -1,0 +1,61 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Пользователи</title>
+    <script>
+        function saveClient() {
+            const clientNameTextBox = document.getElementById('clientNameTextBox');
+            const clientLoginTextBox = document.getElementById('clientLoginTextBox');
+            const clientPasswordTextBox = document.getElementById('clientPasswordTextBox');
+            const clientRoleTextBox = document.getElementById('clientRoleTextBox');
+            const clientDataContainer = document.getElementById('clientDataContainer');
+            const name = clientNameTextBox.value;
+            const login = clientLoginTextBox.value;
+            const password = clientPasswordTextBox.value;
+            const role = clientRoleTextBox.value;
+
+            fetch('api/client', {
+                method: 'post',
+                headers: {'Content-Type':'application/x-www-form-urlencoded'},
+                body: 'name=' + name + '&login=' + login + '&password=' + password + '&role=' + role
+            })
+                .then(response => response.json())
+                .then(client => addedClientId.innerHTML = 'Добавлен пользователь:' + JSON.stringify(client));
+        }
+
+        function refresh() {
+            location.reload();
+        }
+    </script>
+</head>
+
+<body>
+<h4>Создать пользователя</h4>
+<input type="text" id="clientNameTextBox" placeholder="Введите имя пользователя">
+<input type="text" id="clientLoginTextBox" placeholder="Введите login пользователя">
+<input type="password" id="clientPasswordTextBox" placeholder="Введите password пользователя">
+<input type="text" readonly id="clientRoleTextBox" value="client" placeholder="Все пользователи создаются с ролью client">
+<button onclick="saveClient()">Создать</button>
+<pre id="addedClientId"></pre>
+
+<h4>Список пользователей</h4>
+<#list clients>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Login</th>
+        <th>role</th>
+    </tr>
+    <#items as clients>
+    <tr class="${clients?item_parity}Row">
+        <td>${clients.id}
+        <td>${clients.name}
+        <td>${clients.login}
+        <td>${clients.role}
+        </#items>
+</table>
+</#list>
+<button onclick="refresh()">Обновить</button>
+
+</body>
+</html>

@@ -10,27 +10,27 @@ import org.eclipse.jetty.server.handler.ResourceHandler;
 import org.eclipse.jetty.servlet.FilterHolder;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
-import ru.amlet.dao.UserDao;
+import ru.amlet.services.DbServiceClient;
 import ru.amlet.helpers.FileSystemHelper;
 import ru.amlet.services.TemplateProcessor;
-import ru.amlet.services.UserAuthService;
+import ru.amlet.services.ClientAuthService;
 import ru.amlet.servlet.AuthorizationFilter;
 import ru.amlet.servlet.LoginServlet;
-import ru.amlet.servlet.UsersApiServlet;
-import ru.amlet.servlet.UsersServlet;
+import ru.amlet.servlet.ClientsApiServlet;
+import ru.amlet.servlet.ClientsServlet;
 
-public class UsersWebServerImpl implements UsersWebServer {
+public class ClientsWebServerImpl implements ClientsWebServer {
     private static final String START_PAGE_NAME = "index.html";
     private static final String COMMON_RESOURCES_DIR = "static";
 
-    private final UserDao userDao;
+    private final DbServiceClient dbServiceClient;
     private final Gson gson;
     protected final TemplateProcessor templateProcessor;
     private final Server server;
-    private final UserAuthService authService;
+    private final ClientAuthService authService;
 
-    public UsersWebServerImpl(int port, UserDao userDao, Gson gson, TemplateProcessor templateProcessor, UserAuthService authService) {
-        this.userDao = userDao;
+    public ClientsWebServerImpl(int port, DbServiceClient dbServiceClient, Gson gson, TemplateProcessor templateProcessor, ClientAuthService authService) {
+        this.dbServiceClient = dbServiceClient;
         this.gson = gson;
         this.templateProcessor = templateProcessor;
         server = new Server(port);
@@ -62,7 +62,7 @@ public class UsersWebServerImpl implements UsersWebServer {
 
         HandlerList handlers = new HandlerList();
         handlers.addHandler(resourceHandler);
-        handlers.addHandler(applySecurity(servletContextHandler, "/users", "/api/user"));
+        handlers.addHandler(applySecurity(servletContextHandler, "/clients", "/api/client"));
 
 
         server.setHandler(handlers);
@@ -86,8 +86,8 @@ public class UsersWebServerImpl implements UsersWebServer {
 
     private ServletContextHandler createServletContextHandler() {
         ServletContextHandler servletContextHandler = new ServletContextHandler(ServletContextHandler.SESSIONS);
-        servletContextHandler.addServlet(new ServletHolder(new UsersServlet(templateProcessor, userDao)), "/users");
-        servletContextHandler.addServlet(new ServletHolder(new UsersApiServlet(userDao, gson)), "/api/user/*");
+        servletContextHandler.addServlet(new ServletHolder(new ClientsServlet(templateProcessor, dbServiceClient)), "/clients");
+        servletContextHandler.addServlet(new ServletHolder(new ClientsApiServlet(dbServiceClient, gson)), "/api/client/*");
         return servletContextHandler;
     }
 

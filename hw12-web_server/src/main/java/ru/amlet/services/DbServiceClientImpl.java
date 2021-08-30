@@ -1,4 +1,4 @@
-package ru.amlet.dao;
+package ru.amlet.services;
 
 import java.util.List;
 import java.util.Optional;
@@ -9,13 +9,13 @@ import ru.amlet.model.Client;
 import ru.amlet.repository.DataTemplate;
 import ru.amlet.sessionmanager.TransactionManager;
 
-public class HibernateUserDao implements UserDao {
-    private static final Logger log = LoggerFactory.getLogger(HibernateUserDao.class);
+public class DbServiceClientImpl implements DbServiceClient {
+    private static final Logger log = LoggerFactory.getLogger(DbServiceClientImpl.class);
 
     private final DataTemplate<Client> clientDataTemplate;
     private final TransactionManager transactionManager;
 
-    public HibernateUserDao(TransactionManager transactionManager, DataTemplate<Client> clientDataTemplate) {
+    public DbServiceClientImpl(TransactionManager transactionManager, DataTemplate<Client> clientDataTemplate) {
         this.transactionManager = transactionManager;
         this.clientDataTemplate = clientDataTemplate;
     }

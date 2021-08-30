@@ -14,10 +14,10 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import ru.amlet.dao.UserDao;
+import ru.amlet.services.DbServiceClient;
 import ru.amlet.model.Client;
 import ru.amlet.services.TemplateProcessor;
-import ru.amlet.services.UserAuthService;
+import ru.amlet.services.ClientAuthService;
 
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -26,7 +26,7 @@ import static org.mockito.Mockito.mock;
 import static ru.amlet.server.utils.WebServerHelper.*;
 
 @DisplayName("Тест сервера должен ")
-class UsersWebServerImplTest {
+class ClientsWebServerImplTest {
 
     private static final int WEB_SERVER_PORT = 8989;
     private static final String WEB_SERVER_URL = "http://localhost:" + WEB_SERVER_PORT + "/";
@@ -41,7 +41,7 @@ class UsersWebServerImplTest {
     private static final String INCORRECT_USER_LOGIN = "BadUser";
 
     private static Gson gson;
-    private static UsersWebServer webServer;
+    private static ClientsWebServer webServer;
     private static HttpClient http;
 
     @BeforeAll
@@ -49,15 +49,15 @@ class UsersWebServerImplTest {
         http = HttpClient.newHttpClient();
 
         TemplateProcessor templateProcessor = mock(TemplateProcessor.class);
-        UserDao userDao = mock(UserDao.class);
-        UserAuthService userAuthService = mock(UserAuthService.class);
+        DbServiceClient dbServiceClient = mock(DbServiceClient.class);
+        ClientAuthService clientAuthService = mock(ClientAuthService.class);
 
-        given(userAuthService.authenticate(DEFAULT_USER_LOGIN, DEFAULT_USER_PASSWORD)).willReturn(true);
-        given(userAuthService.authenticate(INCORRECT_USER_LOGIN, DEFAULT_USER_PASSWORD)).willReturn(false);
-        given(userDao.findById(DEFAULT_USER_ID)).willReturn(Optional.of(DEFAULT_CLIENT));
+        given(clientAuthService.authenticate(DEFAULT_USER_LOGIN, DEFAULT_USER_PASSWORD)).willReturn(true);
+        given(clientAuthService.authenticate(INCORRECT_USER_LOGIN, DEFAULT_USER_PASSWORD)).willReturn(false);
+        given(dbServiceClient.findById(DEFAULT_USER_ID)).willReturn(Optional.of(DEFAULT_CLIENT));
 
         gson = new GsonBuilder().serializeNulls().create();
-        webServer = new UsersWebServerImpl(WEB_SERVER_PORT, userDao, gson, templateProcessor, userAuthService);
+        webServer = new ClientsWebServerImpl(WEB_SERVER_PORT, dbServiceClient, gson, templateProcessor, clientAuthService);
         webServer.start();
     }
 

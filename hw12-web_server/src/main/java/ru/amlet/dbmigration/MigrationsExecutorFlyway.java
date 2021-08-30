@@ -9,9 +9,9 @@ public class MigrationsExecutorFlyway {
 
     private final Flyway flyway;
 
-    public MigrationsExecutorFlyway(String dbUrl, String dbUserName, String dbPassword) {
+    public MigrationsExecutorFlyway(String dbUrl, String dbClientName, String dbPassword) {
         flyway = Flyway.configure()
-            .dataSource(dbUrl, dbUserName, dbPassword)
+            .dataSource(dbUrl, dbClientName, dbPassword)
             .load();
     }
 

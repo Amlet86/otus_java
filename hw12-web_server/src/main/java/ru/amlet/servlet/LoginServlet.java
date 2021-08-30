@@ -9,7 +9,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import ru.amlet.services.TemplateProcessor;
-import ru.amlet.services.UserAuthService;
+import ru.amlet.services.ClientAuthService;
 
 
 import static jakarta.servlet.http.HttpServletResponse.SC_UNAUTHORIZED;
@@ -23,10 +23,10 @@ public class LoginServlet extends HttpServlet {
 
 
     private final TemplateProcessor templateProcessor;
-    private final UserAuthService userAuthService;
+    private final ClientAuthService clientAuthService;
 
-    public LoginServlet(TemplateProcessor templateProcessor, UserAuthService userAuthService) {
-        this.userAuthService = userAuthService;
+    public LoginServlet(TemplateProcessor templateProcessor, ClientAuthService clientAuthService) {
+        this.clientAuthService = clientAuthService;
         this.templateProcessor = templateProcessor;
     }
 
@@ -42,10 +42,10 @@ public class LoginServlet extends HttpServlet {
         String name = request.getParameter(PARAM_LOGIN);
         String password = request.getParameter(PARAM_PASSWORD);
 
-        if (userAuthService.authenticate(name, password)) {
+        if (clientAuthService.authenticate(name, password)) {
             HttpSession session = request.getSession();
             session.setMaxInactiveInterval(MAX_INACTIVE_INTERVAL);
-            response.sendRedirect("/users");
+            response.sendRedirect("/clients");
         } else {
             response.setStatus(SC_UNAUTHORIZED);
         }

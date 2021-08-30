@@ -1,5 +1,5 @@
 package ru.amlet.services;
 
-public interface UserAuthService {
+public interface ClientAuthService {
     boolean authenticate(String login, String password);
 }
