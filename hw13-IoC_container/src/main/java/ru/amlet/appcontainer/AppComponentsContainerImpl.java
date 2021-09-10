@@ -16,7 +16,7 @@ import ru.amlet.appcontainer.api.AppComponentsContainerConfig;
 
 public class AppComponentsContainerImpl implements AppComponentsContainer {
 
-    private final List<Object> appComponents = new ArrayList<>();
+    private final Map<Class, Object> appComponents = new HashMap<>();
     private final Map<String, Object> appComponentsByName = new HashMap<>();
 
     public AppComponentsContainerImpl(Class<?> initialConfigClass) {
@@ -30,17 +30,17 @@ public class AppComponentsContainerImpl implements AppComponentsContainer {
 
         Object config = createInstance(configClass);
 
-        components.forEach(component -> {
+        for (Method component : components) {
             Object[] args = Arrays.stream(component.getParameterTypes()).map(this::getAppComponent).toArray();
-            Object obj = null;
+            Object obj;
             try {
                 obj = component.invoke(config, args);
             } catch (IllegalAccessException | InvocationTargetException e) {
-                e.printStackTrace();
+                throw new RuntimeException(e);
             }
-            appComponents.add(obj);
+            appComponents.put(obj.getClass(), obj);
             appComponentsByName.put(component.getAnnotation(AppComponent.class).name(), obj);
-        });
+        }
     }
 
     private void checkConfigClass(Class<?> configClass) {
@@ -66,10 +66,13 @@ public class AppComponentsContainerImpl implements AppComponentsContainer {
 
     @Override
     public <C> C getAppComponent(Class<C> componentClass) {
-        return (C) appComponents.stream()
-            .filter(object -> componentClass.isAssignableFrom(object.getClass()))
+        Map.Entry<Class, Object> map = appComponents
+            .entrySet()
+            .stream()
+            .filter(entry -> componentClass.isAssignableFrom(entry.getKey()))
             .findFirst()
             .orElseThrow(() -> new RuntimeException("Component: " + componentClass.getSimpleName() + " not found"));
+        return (C) map.getValue();
     }
 
     @Override
