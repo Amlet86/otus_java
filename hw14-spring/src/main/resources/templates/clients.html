@@ -1,0 +1,54 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Пользователи</title>
+    <script>
+        function saveClient() {
+            const nameTextBox = document.getElementById('nameTextBox');
+            const roleTextBox = document.getElementById('roleTextBox');
+            const name = nameTextBox.value;
+            const role = roleTextBox.value;
+
+            fetch('/api/client', {
+                method: 'post',
+                headers: {'Accept': 'application/json', 'Content-Type': 'application/json'},
+                body: JSON.stringify({name: name, role: role})
+            })
+            .finally(refresh);
+        }
+
+        function refresh() {
+            location.reload();
+        }
+    </script>
+</head>
+
+<body>
+<h4>Создать пользователя</h4>
+<input type="text" id="nameTextBox" placeholder="Введите имя">
+<input type="text" id="roleTextBox" placeholder="Введите роль">
+<button onclick="saveClient()">Создать</button>
+<pre id="addedClientId"></pre>
+
+<h4>Список пользователей</h4>
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Имя</th>
+            <th>Роль</th>
+        </tr>
+    </thead>
+    <tbody>
+        <div th:each="client : ${clients}">
+            <tr>
+                <td th:text="${client.id}"> </td>
+                <td th:text="${client.name}"> </td>
+                <td th:text="${client.role}"> </td>
+            </tr>
+        </div>
+    </tbody>
+</table>
+<button onclick="refresh()">Обновить</button>
+
+</body>
+</html>
