@@ -1,6 +1,6 @@
 package ru.amlet.dto;
 
-import ru.amlet.dao.ClientDAO;
+import ru.amlet.dao.Client;
 
 public class ClientDTO {
 
@@ -24,7 +24,7 @@ public class ClientDTO {
         this.role = role;
     }
 
-    public ClientDAO toModel() {
-        return new ClientDAO(getName(), getRole());
+    public Client toModel() {
+        return new Client(getName(), getRole());
     }
 }

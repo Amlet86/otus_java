@@ -5,7 +5,7 @@ import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.relational.core.mapping.Table;
 
 @Table("client")
-public class ClientDAO {
+public class Client {
 
     @Id
     private final Long id;
@@ -14,14 +14,14 @@ public class ClientDAO {
 
     private final String role;
 
-    public ClientDAO(String name, String role) {
+    public Client(String name, String role) {
         this.id = null;
         this.name = name;
         this.role = role;
     }
 
     @PersistenceConstructor
-    public ClientDAO(Long id, String name, String role) {
+    public Client(Long id, String name, String role) {
         this.id = id;
         this.name = name;
         this.role = role;

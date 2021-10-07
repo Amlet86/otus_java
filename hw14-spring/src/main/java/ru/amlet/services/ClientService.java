@@ -3,13 +3,13 @@ package ru.amlet.services;
 import java.util.List;
 import java.util.Optional;
 
-import ru.amlet.dao.ClientDAO;
+import ru.amlet.dao.Client;
 
 public interface ClientService {
 
-    ClientDAO save(ClientDAO client);
+    Client save(Client client);
 
-    Optional<ClientDAO> get(long id);
+    Optional<Client> get(long id);
 
-    List<ClientDAO> findAll();
+    List<Client> findAll();
 }

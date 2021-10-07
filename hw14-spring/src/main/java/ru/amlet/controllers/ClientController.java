@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import ru.amlet.dao.ClientDAO;
+import ru.amlet.dao.Client;
 import ru.amlet.services.ClientService;
 
 @Controller
@@ -23,7 +23,7 @@ public class ClientController {
 
     @GetMapping("/clients")
     public String clientsListView(Model model) {
-        List<ClientDAO> clients = clientService.findAll();
+        List<Client> clients = clientService.findAll();
         model.addAttribute("clients", clients);
         return "clients";
     }

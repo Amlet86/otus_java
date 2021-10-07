@@ -3,7 +3,7 @@ package ru.amlet.controllers;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import ru.amlet.dao.ClientDAO;
+import ru.amlet.dao.Client;
 import ru.amlet.dto.ClientDTO;
 import ru.amlet.services.ClientService;
 
@@ -18,8 +18,8 @@ public class ClientRestController {
 
     @PostMapping("/api/client")
     public ClientDTO saveClient(@RequestBody ClientDTO clientDTO) {
-        ClientDAO clientDAO = clientDTO.toModel();
-        clientService.save(clientDAO);
+        Client client = clientDTO.toModel();
+        clientService.save(client);
         return clientDTO;
     }
 

@@ -8,7 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.amlet.dao.ClientDAO;
+import ru.amlet.dao.Client;
 import ru.amlet.repository.ClientRepository;
 
 @Service
@@ -24,22 +24,22 @@ public class ClientServiceImpl implements ClientService {
 
     @Override
     @Transactional
-    public ClientDAO save(ClientDAO client) {
+    public Client save(Client client) {
         var savedClient = clientRepository.save(client);
         log.info("saved client: {}", savedClient);
         return savedClient;
     }
 
     @Override
-    public Optional<ClientDAO> get(long id) {
+    public Optional<Client> get(long id) {
         var clientOptional = clientRepository.findById(id);
         log.info("client: {}", clientOptional);
         return clientOptional;
     }
 
     @Override
-    public List<ClientDAO> findAll() {
-        var clientList = new ArrayList<ClientDAO>();
+    public List<Client> findAll() {
+        var clientList = new ArrayList<Client>();
         clientRepository.findAll().forEach(clientList::add);
         log.info("clientList:{}", clientList);
         return clientList;
