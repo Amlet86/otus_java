@@ -15,3 +15,7 @@ include 'hw12-web_server'
 include 'hw13-IoC_container'
 include 'hw14-spring'
 include 'hw15-synchronized'
+include 'hw16-message_system:MessageSystem'
+include 'hw16-message_system:WebServer'
+findProject(':hw16-message_system:WebServer')?.name = 'WebServer'
+
