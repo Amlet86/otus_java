@@ -2,7 +2,7 @@ package ru.amlet;
 
 import java.util.List;
 
-import ru.amlet.services.handler.ComplexProcessor;
+import ru.amlet.handler.ComplexProcessor;
 import ru.amlet.listener.ListenerPrinterConsole;
 import ru.amlet.model.Message;
 import ru.amlet.processor.LoggerProcessor;

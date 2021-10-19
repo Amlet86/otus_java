@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import ru.amlet.services.handler.ComplexProcessor;
+import ru.amlet.handler.ComplexProcessor;
 import ru.amlet.listener.Listener;
 import ru.amlet.model.Message;
 import ru.amlet.processor.Processor;

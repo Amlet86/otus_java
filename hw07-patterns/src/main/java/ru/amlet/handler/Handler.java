@@ -1,4 +1,4 @@
-package ru.amlet.services.handler;
+package ru.amlet.handler;
 
 import ru.amlet.listener.Listener;
 import ru.amlet.model.Message;

@@ -1,4 +1,4 @@
-package ru.amlet.services.handler;
+package ru.amlet.handler;
 
 import java.util.ArrayList;
 import java.util.List;
