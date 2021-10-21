@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Пользователи</title>
+
+    <script src="/webjars/jquery/jquery.min.js"></script>
+    <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+    <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+    <script src="/app.js"></script>
+</head>
+
+<body onload="connect(); getAllClients();">
+<h4>Создать пользователя</h4>
+<div class="row">
+    <label for="clientName">Name:</label>
+    <input id="clientName" name="name" type="text"/>
+    <label for="clientRole">Role:</label>
+    <input id="clientRole" name="role" type="text"/>
+</div>
+
+<div class="row">
+    <button onclick="saveClient(
+                    document.getElementById('clientName').value,
+                    document.getElementById('clientRole').value)"
+            type="button">
+        Создать
+    </button>
+</div>
+<pre id="savedClient"></pre>
+
+<h4>Список пользователей</h4>
+<div class="row">
+    <button onclick="getAllClients()"
+            type="button">Обновить
+    </button>
+</div>
+
+<table id="clients">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Role</th>
+        </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+</table>
+
+</body>
+</html>
