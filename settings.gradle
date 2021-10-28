@@ -18,4 +18,5 @@ include 'hw15-synchronized'
 include 'hw16-message_system:MessageSystem'
 include 'hw16-message_system:WebServer'
 findProject(':hw16-message_system:WebServer')?.name = 'WebServer'
+include 'hw17-multiprocess'
 
