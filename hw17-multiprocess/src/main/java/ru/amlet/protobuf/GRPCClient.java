@@ -63,7 +63,6 @@ public class GRPCClient {
         int currentValue = 0;
 
         for (int i = 0; i < NUMBER_OF_ITERATIONS; i++) {
-            latch.await();
             int atomicValue = newValue.getAndSet(0);
             currentValue += atomicValue + 1;
             logger.info("Current value {}", currentValue);
